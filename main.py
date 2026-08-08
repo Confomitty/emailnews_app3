@@ -7,7 +7,7 @@ api_key = "66f46eff71c54001a25699a975669917"
 url = ("https://newsapi.org/v2/everything?"
        f"q={topic}&"
        "sortBy=publishedAt"
-       "&apiKey=66f46eff71c54001a25699a975669917"
+       "&apiKey=66f46eff71c54001a25699a975669917" 
        "&language=en")
 
 # Make request
