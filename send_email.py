@@ -1,5 +1,6 @@
 import smtplib, ssl
 
+# just try to understand the below code that is all
 
 def send_email(message):
     host = "smtp.gmail.com"
@@ -8,7 +9,7 @@ def send_email(message):
     username = "syedimad305@gmail.com"
     password = "vgzompbfhuhdybiq"
 
-    receiver = "closaif@gmail.com"
+    receiver = "syedsaif.sa@gmail.com"
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL(host, port, context=context) as server:
@@ -16,4 +17,4 @@ def send_email(message):
         server.sendmail(username, receiver, message)
         
 if __name__ == "__main__":
-    send_email("For myself")
+    send_email("This email was sent to you through Python code , rather than manual sending. Just a test")
