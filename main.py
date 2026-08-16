@@ -19,13 +19,13 @@ request = requests.get(url)
 # Get dictionary with data
 content = request.json()
 
-body = ""
+body = "Subject: Today's news" + "\n"
 
 # Access the article titles and description
 for article in content["articles"][:20]:
     print(article["title"])
     if article["title"] is not None:
-        body = "Subject: Today's news" + "\n" + body + article["title"] + "\n" + article["description"] +"\n" + article["url"] + 2*"\n"
+        body = body + article["title"] + "\n" + article["description"] +"\n" + article["url"] + 2*"\n"
 
 body = body.encode("utf-8")
 send_email(body)
