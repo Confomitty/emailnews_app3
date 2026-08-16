@@ -1,0 +1,41 @@
+name: Daily News Email
+
+on:
+  schedule:
+    # Runs at 06:30 UTC every day (Adjust time as needed)
+    - cron: '30 6 * * *'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  send-news:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Check out your repository code , basically the server is cloning my repo before running!
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      # 3. Install required libraries (ensure you have a requirements.txt)
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # 4. Run your script
+      - name: Execute news script
+        run: main.py
+        env:
+          # Map your GitHub Secrets to environment variables
+          username: ${{secrets.USERNAME}}
+          password: ${{secrets.PASSWORD}}
+          receiver: ${{secrets.RECEIVER}}
+          # Add other secrets like API keys here   
+          apakey: ${{secrets.API_KEY}}
+          apakey2: ${{secrets.API_KEY2}} 
