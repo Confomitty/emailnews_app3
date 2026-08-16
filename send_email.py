@@ -1,4 +1,5 @@
 import smtplib, ssl
+import os
 
 # just try to understand the below code that is all
 
@@ -6,10 +7,10 @@ def send_email(message):
     host = "smtp.gmail.com"
     port = 465
 
-    username = "syedimad305@gmail.com"
-    password = "vgzompbfhuhdybiq"
+    username = os.getenv("USERNAME")
+    password = os.getenv("PASSWORD")
 
-    receiver = "syedsaif.sa@gmail.com"
+    receiver = os.getenv("RECEIVER")
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL(host, port, context=context) as server:

@@ -3,10 +3,10 @@ import requests
 import streamlit as st
 import os
 
-api_key = os.getenv("m2G9P5SnEc2kejhu923VEnB6xNaR0Csx3GP0Xtqt")
+api_key2 = os.getenv("API_KEY2")
 
 url = ("https://api.nasa.gov/planetary/apod?"
-       "api_key=m2G9P5SnEc2kejhu923VEnB6xNaR0Csx3GP0Xtqt")
+       "api_key=api_key2")
 
 response = requests.get(url)
 info = response.json()
