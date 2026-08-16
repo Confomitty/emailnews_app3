@@ -33,7 +33,7 @@ jobs:
         run: main.py
         env:
           # Map your GitHub Secrets to environment variables
-          usarnaam: secrets.USERNAME
-          passkaword: secrets.PASSWORD
+          usarnaam: ${{secrets.USERNAME}}
+          passkaword: ${{secrets.PASSWORD}}
           # Add other secrets like API keys here   
-          apakey: secrets.API_KEY
+          apakey: ${{secrets.API_KEY}}
