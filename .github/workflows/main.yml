@@ -20,7 +20,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.13'
 
       # 3. Install required libraries (ensure you have a requirements.txt)
       - name: Install dependencies
@@ -28,9 +28,20 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+
+      - name: Check API key availability
+        run: |
+          if [ -z "$apakey2" ]; then
+            echo "❌ API_KEY2 is EMPTY or NOT AVAILABLE"
+          else
+            echo "✅ API_KEY2 is available"
+          fi
+        env:
+          apakey2: ${{ secrets.API_KEY2 }}
+
       # 4. Run your script
       - name: Execute news script
-        run: main.py
+        run: python main.py
         env:
           # Map your GitHub Secrets to environment variables
           username: ${{secrets.USERNAME}}
