@@ -5,12 +5,12 @@ import os
 
 topic = "tesla"
 
-api_key = os.getenv("API_KEY")
+api_key = os.getenv("apakey")
 
 url = ("https://newsapi.org/v2/everything?"
        f"q={topic}&"
        "sortBy=publishedAt"
-       "&apiKey=api_key" 
+       "&apiKey=api_key " 
        "&language=en")
 
 # Make request
