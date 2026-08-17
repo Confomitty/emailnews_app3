@@ -24,7 +24,7 @@ body = "Subject: Today's news" + "\n"
 # Access the article titles and description
 for article in content["articles"][:20]:
     print(article["title"])
-    if article["title"] is not None:
+    if article["title"] and article["description"] and article["url"]:
         body = body + article["title"] + "\n" + article["description"] +"\n" + article["url"] + 2*"\n"
 
 body = body.encode("utf-8")
